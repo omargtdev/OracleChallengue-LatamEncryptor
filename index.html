@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- ICONS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- STYLES -->
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <title>Encriptador - ONE</title>
+    </head>
+    <body>
+        <header>
+            <img src="img/logo.svg" alt="Alura logo" />
+        </header>
+        <main>
+            <textarea type="text" id="mainInput" placeholder="Ingrese el texto aqui"></textarea>
+            <p>
+            <img src="img/info-icon.svg" alt="Information" /> Solo letras minúsculas y
+            sin acentos
+            </p>
+            <section class="actions">
+                <button class="btn btn-dark" id="encryptBtn">Encriptar</button> 
+                <button class="btn" id="decryptBtn">Desencriptar</button> 
+            </section>
+        </main>
+        <aside>
+            <div id="messageContainer">
+            </div>
+        </aside>
+        <div class="toasts-container">
+            <div class="toast" id="copiedMessage">Message copied!</div>
+            <div class="toast" id="deletedMessage">Message deleted!</div>
+        </div>
+        <script src="js/main.js" type="module"></script>
+    </body>
+</html>

@@ -1,0 +1,250 @@
+:root {
+    --dark-blue-100: #609ED4;
+    --dark-blue-200: #356EA9;
+    --dark-blue-300: #0A3871;
+    --dark-blue-400: #072B61;
+    --dark-blue-500: #052051;
+
+    --light-blue-100: #F3F5FC;
+    --light-blue-200: #EFF1FA;
+    --light-blue-300: #E9ECF8;
+    --light-blue-400: #AAB2D5;
+    --light-blue-500: #757FB2;
+
+    --gray-100: #CED4DA;
+    --gray-200: #ADB5BD;
+    --gray-300: #868E96;
+    --gray-400: #495057;
+    --gray-500: #343A40;
+}
+
+html {
+    background-color: var(--light-blue-100);
+    font-family: system-ui, Arial, Helvetica, sans-serif;
+}
+
+body {
+    padding: 28px 40px 50px;
+    height: calc(100vh - 80px);
+    min-height: 100vh; 
+    
+    display: grid;
+    grid-template-columns: calc(24px + 6%) 7fr 4fr;
+    gap: 6%;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+main {
+    margin-top: 128px;
+    height: 100%;
+
+    display: grid;
+    grid-template-rows: 1fr min-content min-content;
+}
+
+main p {
+  margin: 16px 0;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  color: var(--gray-400);
+}
+
+main .actions {
+  display: flex;
+  gap: 24px;
+}
+
+textarea {
+    width: 100%;
+    background: none;
+    color: var(--dark-blue-300);
+    font-size: 32px;
+    border: none;
+    resize: none;
+}
+
+textarea::placeholder {
+    color: var(--dark-blue-300);
+}
+
+textarea:focus {
+    outline: none;
+}
+
+aside {
+  background-color: white;
+  height: 100%;
+  border-radius: 32px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-shadow: 0px 24px 32px -8px #00000014;
+  justify-content: center;
+}
+
+aside img {
+  width: 100%;
+}
+
+aside h2 {
+  color: var(--gray-500);
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+aside p {
+  text-align: center;
+  font-size: 16px;
+}
+
+#messageContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+
+
+.message {
+  font-size: 24px;
+  color: var(--gray-400);
+  height: auto;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.message p {
+    margin-top: 0;
+    margin-right: 20px;
+}
+
+.message-actions i {
+    cursor: pointer;
+    margin-right: 5px;
+    color: var(--dark-blue-200);
+}
+
+.message-actions i:hover {
+    color: var(--dark-blue-400);
+}
+
+.btn {
+  font-size: 16px;
+  width: 100%;
+  color: #0a3871;
+  background-color: white;
+  border: 1px solid var(--dark-blue-300);
+  padding: 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background .5s;
+}
+
+.btn:hover {
+    color: white;    
+    background-color: var(--dark-blue-300);
+}
+
+.btn-dark {
+    color: white;    
+    background-color: var(--dark-blue-300);
+}
+
+.btn-dark:hover {
+    background-color: var(--dark-blue-500);
+}
+
+
+@media only screen and (max-width: 900px){
+   
+    .message-empty-image {
+        display: none;
+    }
+
+    body {
+        grid-template-columns: auto;
+        grid-template-rows: auto 60vh auto;
+        gap: 50px;
+        height: max-content;
+    }
+
+    header {
+        display: block;
+    }
+
+    main {
+        margin-top: 0;
+        height: 100%;
+    }
+
+}
+
+
+@media only screen and (max-width: 400px){
+
+    body {
+        grid-template-rows: auto 75vh auto;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+}
+
+
+/* TOAST */
+/* Styles based on https://www.w3schools.com/howto/howto_js_snackbar.asp */
+
+.toast {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: var(--dark-blue-300); /* Black background color */
+  color: var(--gray-100); /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+}
+
+.toast.show {
+  visibility: visible; /* Show the snackbar */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 1.5s;
+  animation: fadein 0.5s, fadeout 0.5s 1.5s;  
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
